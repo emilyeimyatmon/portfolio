@@ -1,0 +1,4773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ei Myat Mon | Business Analytics & AI Professional</title>
+  <meta name="description" content="Portfolio of Ei Myat Mon - Graduate student in Business Analytics & AI with 12+ years of IT systems engineering experience">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --primary-light: #818cf8;
+      --secondary: #ec4899;
+      --accent: #f59e0b;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-dark);
+      background: #f1f5f9;
+      background-image: 
+        linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+      animation: bodyGlow 10s ease-in-out infinite;
+    }
+
+    @keyframes bodyGlow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .container, section {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-dark);
+    }
+
+    .display-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 2.25rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.02em;
+      text-transform: none;
+      position: relative;
+      transition: all 0.3s ease;
+      line-height: 1.2;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .navbar-brand::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      width: 4px;
+      height: 60%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transform: translateY(-50%);
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .navbar-brand:hover::before {
+      opacity: 1;
+    }
+
+    .navbar-brand::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .navbar-brand:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-muted) !important;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem !important;
+      border-radius: 0.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      animation: navLinkFadeIn 0.8s ease-out;
+      animation-delay: calc(var(--nav-index, 0) * 0.1s);
+      animation-fill-mode: both;
+    }
+
+    @keyframes navLinkFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary) !important;
+      background: rgba(99, 102, 241, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 80%;
+    }
+
+    /* Hero Section - Data & AI Design */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: #0f172a;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    /* Animated Data Background */
+    .data-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .data-node {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: rgba(99, 102, 241, 1);
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.8), 0 0 30px rgba(99, 102, 241, 0.4);
+      animation: nodePulse 3s ease-in-out infinite;
+    }
+
+    @keyframes nodePulse {
+      0%, 100% { 
+        transform: scale(1);
+        opacity: 0.8;
+        box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+      }
+      50% { 
+        transform: scale(1.5);
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(99, 102, 241, 1);
+      }
+    }
+
+    .data-connection {
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), rgba(99, 102, 241, 0.8), rgba(99, 102, 241, 0.6), transparent);
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+      animation: dataFlow 4s linear infinite;
+    }
+
+    @keyframes dataFlow {
+      0% { 
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      50% { 
+        opacity: 1;
+      }
+      100% { 
+        opacity: 0;
+        transform: translateX(100%);
+      }
+    }
+
+    .data-chart {
+      position: absolute;
+      width: 200px;
+      height: 100px;
+      border-left: 3px solid rgba(99, 102, 241, 0.6);
+      border-bottom: 3px solid rgba(99, 102, 241, 0.6);
+      opacity: 0.4;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .chart-bar {
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.8), rgba(99, 102, 241, 0.4));
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+      animation: barGrow 2s ease-in-out infinite;
+    }
+
+    @keyframes barGrow {
+      0%, 100% { height: 30%; }
+      50% { height: 80%; }
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.6;
+      animation: gridMove 25s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(40px, 40px); }
+    }
+
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(99, 102, 241, 0.05) 2px,
+          rgba(99, 102, 241, 0.05) 4px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 2px,
+          rgba(99, 102, 241, 0.05) 2px,
+          rgba(99, 102, 241, 0.05) 4px
+        );
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      background: rgba(99, 102, 241, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      color: #a5b4fc;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      animation: slideInLeft 0.8s ease-out 0.2s both, techPulse 2s ease-in-out infinite 1s;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.2), inset 0 0 20px rgba(99, 102, 241, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+      animation: scanLine 3s ease-in-out infinite;
+    }
+
+    @keyframes scanLine {
+      0% { left: -100%; }
+      50%, 100% { left: 100%; }
+    }
+
+    @keyframes techPulse {
+      0%, 100% { 
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.2), inset 0 0 20px rgba(99, 102, 241, 0.1);
+        border-color: rgba(99, 102, 241, 0.3);
+      }
+      50% { 
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), inset 0 0 30px rgba(99, 102, 241, 0.2);
+        border-color: rgba(99, 102, 241, 0.6);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+      50% { box-shadow: 0 4px 25px rgba(255, 255, 255, 0.3); }
+    }
+
+    .hero-badge i {
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      animation: fadeInUp 1s ease-out 0.4s both, textGlow 3s ease-in-out infinite 1.5s;
+      text-shadow: 
+        0 0 10px rgba(99, 102, 241, 0.5),
+        0 0 20px rgba(99, 102, 241, 0.3),
+        0 0 30px rgba(99, 102, 241, 0.2),
+        0 4px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    @keyframes textGlow {
+      0%, 100% { 
+        text-shadow: 
+          0 0 10px rgba(99, 102, 241, 0.5),
+          0 0 20px rgba(99, 102, 241, 0.3),
+          0 0 30px rgba(99, 102, 241, 0.2),
+          0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+      50% { 
+        text-shadow: 
+          0 0 20px rgba(99, 102, 241, 0.8),
+          0 0 40px rgba(99, 102, 241, 0.5),
+          0 0 60px rgba(99, 102, 241, 0.3),
+          0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .hero-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #6366f1, #ec4899, transparent);
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.8);
+      animation: underlineExpand 1s ease-out 1.2s forwards;
+    }
+
+    @keyframes underlineExpand {
+      to { width: 100%; }
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      color: #a5b4fc;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      animation: fadeInUp 1s ease-out 0.6s both;
+      text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.875rem;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      animation: fadeInUp 1s ease-out 0.8s both;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 1s both;
+    }
+
+    .btn-hero {
+      padding: 0.875rem 2rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn-hero:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-hero span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-hero-primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4), 0 0 20px rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.5);
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(99, 102, 241, 0.6), 0 0 40px rgba(99, 102, 241, 0.4);
+      background: linear-gradient(135deg, #818cf8, #a78bfa);
+    }
+
+    .btn-hero-outline {
+      background: rgba(99, 102, 241, 0.1);
+      color: #a5b4fc;
+      border: 2px solid rgba(99, 102, 241, 0.5);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+    }
+
+    .btn-hero-outline:hover {
+      background: rgba(99, 102, 241, 0.2);
+      color: #c7d2fe;
+      transform: translateY(-4px) scale(1.05);
+      border-color: rgba(99, 102, 241, 0.8);
+      box-shadow: 0 12px 35px rgba(99, 102, 241, 0.4), 0 0 30px rgba(99, 102, 241, 0.3);
+    }
+
+    .hero-image {
+      position: relative;
+      z-index: 2;
+      animation: fadeInRight 1s ease-out 0.6s both;
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .profile-image-wrapper {
+      position: relative;
+      display: inline-block;
+      animation: floatImage 6s ease-in-out infinite;
+    }
+
+    @keyframes floatImage {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+
+    .profile-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 2rem;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .profile-image-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border-radius: 2rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(236, 72, 153, 0.4));
+      z-index: -1;
+      animation: techGlow 3s ease-in-out infinite;
+      filter: blur(20px);
+    }
+
+    @keyframes techGlow {
+      0%, 100% { 
+        opacity: 0.5; 
+        transform: scale(1);
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+      }
+      50% { 
+        opacity: 0.8; 
+        transform: scale(1.05);
+        box-shadow: 0 0 50px rgba(99, 102, 241, 0.6);
+      }
+    }
+
+    .profile-image-wrapper:hover .profile-image {
+      transform: scale(1.05);
+      box-shadow: 0 35px 70px rgba(99, 102, 241, 0.5), 0 0 60px rgba(99, 102, 241, 0.3);
+      border-color: rgba(99, 102, 241, 0.6);
+    }
+
+    .floating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 0;
+      background: transparent;
+      animation: techFloat 20s infinite ease-in-out;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .shape:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(99, 102, 241, 0.05));
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+    }
+
+    .shape:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      right: 10%;
+      animation-delay: 5s;
+      clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(236, 72, 153, 0.05));
+      box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
+    }
+
+    .shape:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 10s;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05));
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+    }
+
+    @keyframes techFloat {
+      0%, 100% { 
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.6;
+        filter: blur(0px);
+      }
+      25% { 
+        transform: translate(40px, -40px) rotate(90deg) scale(1.1);
+        opacity: 0.8;
+        filter: blur(2px);
+      }
+      50% { 
+        transform: translate(-30px, 30px) rotate(180deg) scale(0.9);
+        opacity: 0.7;
+        filter: blur(0px);
+      }
+      75% { 
+        transform: translate(30px, 40px) rotate(270deg) scale(1.05);
+        opacity: 0.8;
+        filter: blur(1px);
+      }
+    }
+
+    .tech-line {
+      position: absolute;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), transparent);
+      height: 2px;
+      animation: techLineMove 8s linear infinite;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+    }
+
+    .tech-line-1 {
+      top: 30%;
+      left: 0;
+      width: 200px;
+      animation-delay: 0s;
+    }
+
+    .tech-line-2 {
+      top: 60%;
+      right: 0;
+      width: 250px;
+      animation-delay: 2s;
+      transform: rotate(180deg);
+    }
+
+    .tech-line-3 {
+      bottom: 30%;
+      left: 20%;
+      width: 180px;
+      animation-delay: 4s;
+      transform: rotate(45deg);
+    }
+
+    @keyframes techLineMove {
+      0% { 
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+      50% { 
+        opacity: 1;
+      }
+      100% { 
+        opacity: 0;
+        transform: translateX(calc(100vw + 100px));
+      }
+    }
+
+    /* Section Styles - Data & AI Theme */
+    .section {
+      padding: 5rem 0;
+      position: relative;
+      overflow: visible;
+      animation: sectionFadeIn 0.8s ease-out;
+    }
+
+    @keyframes sectionFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #experience.section,
+    #education.section {
+      overflow: visible;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(99, 102, 241, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.06) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+      animation: gridMove 30s linear infinite;
+    }
+
+    .section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: sectionGlow 6s ease-in-out infinite;
+    }
+
+    @keyframes sectionGlow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .section > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    #experience .container,
+    #education .container {
+      overflow: visible;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      animation: headerSlideIn 1s ease-out;
+    }
+
+    @keyframes headerSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-badge {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Cards */
+    .card-modern {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100%;
+      box-shadow: var(--shadow-sm);
+      animation: cardFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes cardFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .card-modern:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+      border-color: var(--primary);
+      animation: none;
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-text {
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Skills Grid */
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      animation: skillTagBounce 2s ease-in-out infinite;
+      transition: all 0.3s ease;
+      margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+
+    .skill-tag:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-5px) scale(1.05);
+      animation: none;
+      box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Timeline - Hover to Reveal Details */
+    .timeline-container {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .timeline-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-card {
+      background: var(--bg-white);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-card {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+      border-color: var(--primary);
+    }
+
+    .timeline-item:hover .timeline-card::before {
+      transform: scaleX(1);
+    }
+
+    .timeline-year {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--bg-light);
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    .timeline-role {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .timeline-company {
+      font-size: 0.9375rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-meta {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .timeline-description {
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 0.875rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-description {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 0.75rem;
+    }
+
+    .timeline-description ul {
+      margin-top: 0.5rem;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .timeline-description li {
+      margin-bottom: 0.375rem;
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .timeline-description li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Academic Journey - Arrow Navigation Style */
+    .academic-container {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .academic-wrapper {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 1rem 0;
+    }
+
+    .academic-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .academic-item {
+      flex: 0 0 320px;
+      position: relative;
+    }
+
+    .academic-card {
+      background: var(--bg-white);
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      height: auto;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .academic-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .academic-item:hover .academic-card {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(99, 102, 241, 0.2);
+      border-color: var(--primary);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(99, 102, 241, 0.02));
+    }
+
+    .academic-item:hover .academic-card::before {
+      transform: scaleX(1);
+    }
+
+    .academic-year {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--primary-light);
+    }
+
+    .academic-role {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .academic-company {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .academic-meta {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .academic-description {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 0.9375rem;
+      flex-grow: 1;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.4s ease;
+      margin-top: 0;
+    }
+
+    .academic-item:hover .academic-description {
+      max-height: 1000px;
+      opacity: 1;
+      margin-top: 1rem;
+    }
+
+    .academic-description ul {
+      margin-top: 0.75rem;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .academic-description li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .academic-description li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .academic-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-white);
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      font-size: 1.25rem;
+    }
+
+    .academic-nav:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .academic-nav-left {
+      left: -24px;
+    }
+
+    .academic-nav-right {
+      right: -24px;
+    }
+
+    .academic-nav.disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* Experience Icon Grid Style */
+    .experience-icon-grid {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding: 3rem 0 500px 0;
+      position: relative;
+      min-height: 600px;
+      overflow: visible;
+    }
+
+    .experience-icon-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      margin-bottom: 0;
+      z-index: 1;
+      transition: margin-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s;
+    }
+
+    .experience-icon-item:hover {
+      z-index: 1001;
+      margin-bottom: 400px;
+    }
+
+    .experience-icon-item.active {
+      z-index: 1001;
+      margin-bottom: 400px;
+    }
+
+    .experience-icon-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .experience-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+      border: 3px solid rgba(99, 102, 241, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--primary);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.15);
+      animation: iconRotate 20s linear infinite;
+      overflow: hidden;
+      padding: 10px;
+    }
+
+    .experience-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+      animation: iconCounterRotate 20s linear infinite;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .experience-icon-item:hover .experience-icon img {
+      transform: scale(1.1) rotate(5deg);
+      filter: brightness(1.2) drop-shadow(0 0 15px rgba(99, 102, 241, 0.6));
+    }
+
+    .experience-icon-item.active .experience-icon img {
+      transform: scale(1.1) rotate(5deg);
+      filter: brightness(1.2) drop-shadow(0 0 15px rgba(99, 102, 241, 0.6));
+    }
+
+    .experience-icon .academic-year-icon {
+      animation: iconCounterRotate 20s linear infinite;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    @keyframes iconRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes iconCounterRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    }
+
+    .academic-year-icon {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .experience-icon-item:hover .experience-icon,
+    .experience-icon-item.active .experience-icon {
+      transform: scale(1.15) translateY(-10px) rotate(360deg);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+      border-color: var(--primary);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4), 0 0 40px rgba(99, 102, 241, 0.3);
+      color: var(--primary-dark);
+      animation: iconPulse 1.5s ease-in-out infinite, iconRotate 20s linear infinite;
+    }
+
+    @keyframes iconPulse {
+      0%, 100% {
+        box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4), 0 0 40px rgba(99, 102, 241, 0.3);
+      }
+      50% {
+        box-shadow: 0 12px 40px rgba(99, 102, 241, 0.6), 0 0 60px rgba(99, 102, 241, 0.5);
+      }
+    }
+
+    /* Logo hover animation effects */
+    .experience-icon {
+      position: relative;
+      overflow: visible;
+    }
+
+    .experience-icon::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+      filter: blur(10px);
+    }
+
+    .experience-icon-item:hover .experience-icon::before,
+    .experience-icon-item.active .experience-icon::before {
+      opacity: 1;
+      transform: scale(1.3);
+      animation: logoGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes logoGlow {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scale(1.3);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.5);
+      }
+    }
+
+    .experience-icon-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .experience-icon-item:hover .experience-icon-label {
+      color: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .experience-details-card {
+      position: absolute;
+      top: 140px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.95);
+      width: 450px;
+      max-width: 90vw;
+      background: var(--bg-white);
+      border-radius: 1.5rem;
+      padding: 0;
+      border: 2px solid var(--primary);
+      box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      max-height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    .experience-details-card .card-content {
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+    }
+
+    .experience-icon-item.active .experience-details-card,
+    .experience-icon-item:hover .experience-details-card {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+      max-height: 1500px;
+      overflow-y: auto;
+      pointer-events: auto;
+      visibility: visible;
+      padding: 2rem;
+    }
+
+    .experience-icon-item.active .experience-details-card .card-content,
+    .experience-icon-item:hover .experience-details-card .card-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .experience-details-card::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .experience-details-card::-webkit-scrollbar-track {
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 10px;
+    }
+
+    .experience-details-card::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+
+    .experience-year {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+      padding: 0.4rem 0.9rem;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--primary-light);
+    }
+
+    .experience-role {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .experience-company {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-meta {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .experience-description {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 0.9375rem;
+    }
+
+    .experience-description ul {
+      margin-top: 0.75rem;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .experience-description li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .experience-description li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .experience-icon-grid {
+        gap: 2rem;
+      }
+
+      .experience-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+      }
+
+      .experience-details-card {
+        width: 350px;
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .timeline-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-description {
+        max-height: 500px;
+        opacity: 1;
+        margin-top: 0.75rem;
+      }
+
+      .academic-nav {
+        display: none;
+      }
+
+      .academic-item {
+        flex: 0 0 280px;
+      }
+    }
+
+    /* Projects */
+    .project-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+      border-color: var(--primary);
+      animation: none;
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-header {
+      padding: 2rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .project-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .project-description {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+      font-size: 0.9375rem;
+    }
+
+    .project-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.875rem;
+      background: var(--bg-light);
+      border-radius: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      border: 1px solid var(--border);
+    }
+
+    .project-highlight i {
+      color: var(--primary);
+      font-size: 0.875rem;
+    }
+
+    .project-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .project-features li {
+      padding: 0.5rem 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      background: var(--bg-light);
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-features li::before {
+      content: '✓';
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .project-read-more {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-top: 1rem;
+    }
+
+    .project-read-more.expanded {
+      max-height: 3000px;
+      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-read-more-content {
+      padding: 1.5rem 0;
+      border-top: 2px solid var(--border);
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .project-read-more-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .read-more-item {
+        padding: 1rem;
+      }
+    }
+
+    .read-more-item {
+      background: var(--bg-light);
+      border-radius: 0.875rem;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .read-more-item:hover {
+      background: white;
+      border-color: var(--primary-light);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .read-more-item-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .read-more-item-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 0.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .read-more-item-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    .read-more-item-content {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .read-more-item-content strong {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .btn-read-more {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+      border: 1px solid var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .btn-read-more:hover {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-read-more i {
+      transition: transform 0.3s ease;
+      font-size: 0.875rem;
+    }
+
+    .btn-read-more.expanded {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn-read-more.expanded i {
+      transform: rotate(180deg);
+    }
+
+    .project-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .project-footer .btn {
+      flex: 1 1 auto;
+      min-width: 0;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .project-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .project-footer .btn {
+        width: 100%;
+        justify-content: center;
+        flex: 1 1 100%;
+      }
+    }
+
+    .btn-project {
+      padding: 0.625rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: all 0.3s ease;
+      border: none;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .btn-project i {
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .btn-project-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-project-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      color: white;
+    }
+
+    .btn-project-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-project-outline:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--bg-light);
+    }
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-icon-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      transition: all 0.3s ease;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+
+    .contact-icon-link:hover {
+      transform: translateY(-5px);
+      color: var(--primary);
+    }
+
+    .contact-icon-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      color: var(--primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .contact-icon-link:hover .contact-icon-circle {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+      transform: scale(1.1);
+    }
+
+    .contact-icon-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .contact-icon-link:hover .contact-icon-label {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .contact-info-minimal {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-status-title {
+      color: var(--text-dark);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .contact-status-title i {
+      color: var(--primary);
+      font-size: 1.125rem;
+    }
+
+    .contact-badges-minimal {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .contact-badge-minimal {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-badge-minimal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .contact-badge-minimal:hover::before {
+      left: 100%;
+    }
+
+    .contact-badge-permit {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+      color: #16a34a;
+      border: 2px solid rgba(34, 197, 94, 0.3);
+      box-shadow: 0 2px 8px rgba(34, 197, 94, 0.15);
+    }
+
+    .contact-badge-permit:hover {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.1));
+      border-color: rgba(34, 197, 94, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+    }
+
+    .contact-badge-relocation {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.05));
+      color: var(--primary);
+      border: 2px solid rgba(99, 102, 241, 0.3);
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+    }
+
+    .contact-badge-relocation:hover {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.1));
+      border-color: rgba(99, 102, 241, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    }
+
+    .contact-badge-minimal i {
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    /* Modal Styles */
+    .modal-content {
+      border-radius: 1.25rem;
+      border: none;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      padding: 1.5rem;
+    }
+
+    .modal-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .modal-body {
+      padding: 0;
+    }
+
+    .project-iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    /* Roadmap with Scroll-Triggered Line Chart */
+    .roadmap-container {
+      position: relative;
+      padding: 2rem 0;
+      min-height: 100vh;
+    }
+
+    .roadmap-chart-container {
+      position: relative;
+      height: 400px;
+      background: var(--bg-white);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      z-index: 10;
+    }
+
+    .roadmap-chart-container.sticky {
+      position: sticky;
+      top: 100px;
+    }
+
+    .roadmap-chart-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .roadmap-chart-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      background: var(--bg-light);
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+
+    .roadmap-chart-canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+
+    .roadmap-milestones {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .roadmap-milestone {
+      position: relative;
+      padding: 2rem 0 2rem 3rem;
+      margin-bottom: 3rem;
+      opacity: 0.4;
+      transition: opacity 0.3s ease;
+    }
+
+    .roadmap-milestone.active {
+      opacity: 1;
+    }
+
+    .roadmap-milestone::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 2.5rem;
+      width: 12px;
+      height: 12px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid var(--bg-white);
+      box-shadow: 0 0 0 3px var(--primary);
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .roadmap-milestone.active::before {
+      transform: scale(1.5);
+      box-shadow: 0 0 0 3px var(--primary), 0 0 20px rgba(99, 102, 241, 0.5);
+    }
+
+    .roadmap-milestone::after {
+      content: '';
+      position: absolute;
+      left: -1.45rem;
+      top: 3.5rem;
+      width: 2px;
+      height: calc(100% + 1rem);
+      background: var(--border);
+      z-index: 1;
+    }
+
+    .roadmap-milestone:last-child::after {
+      display: none;
+    }
+
+    .roadmap-milestone.active::after {
+      background: linear-gradient(180deg, var(--primary), var(--border));
+    }
+
+    .roadmap-milestone-year {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .roadmap-milestone-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .roadmap-milestone-description {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .pdf-viewer-no-download {
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+    .pdf-viewer-no-download iframe {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+    /* Roadmap with Scroll-Triggered Line Chart */
+    .roadmap-container {
+      position: relative;
+      padding: 2rem 0;
+      min-height: 100vh;
+    }
+
+    .roadmap-chart-container {
+      position: sticky;
+      top: 100px;
+      height: 400px;
+      background: var(--bg-white);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      z-index: 10;
+    }
+
+    .roadmap-chart-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .roadmap-chart-wrapper {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background: var(--bg-light);
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+
+    .roadmap-chart-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .roadmap-milestones {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .roadmap-milestone {
+      position: relative;
+      padding: 2rem 0 2rem 3rem;
+      margin-bottom: 3rem;
+      opacity: 0.4;
+      transition: opacity 0.3s ease;
+    }
+
+    .roadmap-milestone.active {
+      opacity: 1;
+    }
+
+    .roadmap-milestone::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 2.5rem;
+      width: 12px;
+      height: 12px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid var(--bg-white);
+      box-shadow: 0 0 0 3px var(--primary);
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .roadmap-milestone.active::before {
+      transform: scale(1.5);
+      box-shadow: 0 0 0 3px var(--primary), 0 0 20px rgba(99, 102, 241, 0.5);
+    }
+
+    .roadmap-milestone::after {
+      content: '';
+      position: absolute;
+      left: -1.45rem;
+      top: 3.5rem;
+      width: 2px;
+      height: calc(100% + 1rem);
+      background: var(--border);
+      z-index: 1;
+    }
+
+    .roadmap-milestone:last-child::after {
+      display: none;
+    }
+
+    .roadmap-milestone.active::after {
+      background: linear-gradient(180deg, var(--primary), var(--border));
+    }
+
+    .roadmap-milestone-year {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .roadmap-milestone-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .roadmap-milestone-description {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: auto;
+        padding: 6rem 0 4rem;
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+
+      .section-header {
+        margin-bottom: 2.5rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn-hero {
+        width: 100%;
+      }
+
+      .timeline-item {
+        padding-left: 2rem;
+      }
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="data-background" id="dataBackground"></div>
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="tech-line tech-line-1"></div>
+      <div class="tech-line tech-line-2"></div>
+      <div class="tech-line tech-line-3"></div>
+    </div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 hero-content" data-aos="fade-right">
+          <div class="hero-badge">
+            <i class="bi bi-graph-up-arrow"></i>
+            Business Analytics & AI Graduate Student
+          </div>
+          <h1 class="hero-title display-title">Ei Myat Mon</h1>
+          <p class="hero-subtitle">Data Analytics & AI Professional</p>
+          <p class="hero-description">
+            Graduate student in Business Analytics & AI with 12+ years of IT systems engineering experience. 
+            Specializing in data analytics, automation, and enterprise solutions.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-hero btn-hero-primary">
+              <span><i class="bi bi-folder2-open me-2"></i>View Projects</span>
+            </a>
+            <button class="btn btn-hero btn-hero-outline" data-bs-toggle="modal" data-bs-target="#resumeModal">
+              <span><i class="bi bi-file-earmark-pdf me-2"></i>View Resume</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-image" data-aos="fade-left">
+          <div class="profile-image-wrapper">
+            <img src="profile.jpg" alt="Ei Myat Mon" class="profile-image" onerror="this.style.display='none'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">About Me</span>
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="section-subtitle">
+          A dedicated professional with expertise in data analytics, IT systems engineering, and cybersecurity, 
+          combining technical skills with business acumen to drive data-driven decisions.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-modern">
+            <div class="card-icon">
+              <i class="bi bi-person-badge"></i>
+            </div>
+            <h3 class="card-title">Background</h3>
+            <p class="card-text">
+              Graduate student in Business Analytics & AI with a strong foundation in data analytics, automation, 
+              SQL, and enterprise system engineering. Brings over 12 years of experience supporting large-scale 
+              technology operations at multinational companies, including Deloitte.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-modern">
+            <div class="card-icon">
+              <i class="bi bi-mortarboard"></i>
+            </div>
+            <h3 class="card-title">Education & Certifications</h3>
+            <p class="card-text mb-3">
+              <strong>Master of Business Analytics & AI</strong> (Expected Aug 2026)<br>
+              Ontario Tech University, Oshawa, Ontario
+            </p>
+            <p class="card-text mb-3">
+              <strong>MSc Cyber Security - Distinction</strong> (Feb 2025)<br>
+              Coventry University, UK - PSB Academy Singapore
+            </p>
+            <p class="card-text">
+              <strong>Certifications:</strong> Microsoft Azure Fundamentals, ITIL Foundation, CAPM (PMI)
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-6 stat-item" data-aos="fade-up" data-aos-delay="100">
+          <span class="stat-number">12+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="col-md-3 col-6 stat-item" data-aos="fade-up" data-aos-delay="200">
+          <span class="stat-number">40%</span>
+          <span class="stat-label">Operational Efficiency Gain</span>
+        </div>
+        <div class="col-md-3 col-6 stat-item" data-aos="fade-up" data-aos-delay="300">
+          <span class="stat-number">25%</span>
+          <span class="stat-label">Incident Reduction</span>
+        </div>
+        <div class="col-md-3 col-6 stat-item" data-aos="fade-up" data-aos-delay="400">
+          <span class="stat-number">95%+</span>
+          <span class="stat-label">SLA Performance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills" style="background: var(--bg-light);">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Core Skills</span>
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-subtitle">
+          A comprehensive skill set spanning analytics, machine learning, cloud systems, and automation.
+        </p>
+      </div>
+
+      <div class="row g-4 mb-4">
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-modern">
+            <h4 class="card-title mb-3">
+              <i class="bi bi-graph-up-arrow text-primary me-2"></i>Analytics & Tools
+            </h4>
+            <div>
+              <span class="skill-tag"><i class="bi bi-filetype-py"></i> Python</span>
+              <span class="skill-tag"><i class="bi bi-bar-chart"></i> Pandas</span>
+              <span class="skill-tag"><i class="bi bi-calculator"></i> NumPy</span>
+              <span class="skill-tag"><i class="bi bi-graph-up"></i> Power BI</span>
+              <span class="skill-tag"><i class="bi bi-pie-chart"></i> Tableau</span>
+              <span class="skill-tag"><i class="bi bi-kanban"></i> Canvas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-modern">
+            <h4 class="card-title mb-3">
+              <i class="bi bi-cpu text-primary me-2"></i>Machine Learning
+            </h4>
+            <div>
+              <span class="skill-tag">Regression</span>
+              <span class="skill-tag">Classification</span>
+              <span class="skill-tag">Time Series</span>
+              <span class="skill-tag">Model Evaluation</span>
+              <span class="skill-tag">Feature Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-modern">
+            <h4 class="card-title mb-3">
+              <i class="bi bi-database text-primary me-2"></i>Data Skills
+            </h4>
+            <div>
+              <span class="skill-tag"><i class="bi bi-database"></i> SQL</span>
+              <span class="skill-tag"><i class="bi bi-arrow-repeat"></i> ETL</span>
+              <span class="skill-tag"><i class="bi bi-broom"></i> Data Cleaning</span>
+              <span class="skill-tag"><i class="bi bi-gear"></i> Feature Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-modern">
+            <h4 class="card-title mb-3">
+              <i class="bi bi-cloud text-primary me-2"></i>Cloud & Systems
+            </h4>
+            <div>
+              <span class="skill-tag"><i class="bi bi-microsoft"></i> Microsoft Azure</span>
+              <span class="skill-tag"><i class="bi bi-diagram-3"></i> Active Directory</span>
+              <span class="skill-tag"><i class="bi bi-layers"></i> VMware</span>
+              <span class="skill-tag"><i class="bi bi-kanban"></i> ServiceNow</span>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="section" id="education" style="background: var(--bg-light);">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Education</span>
+        <h2 class="section-title">Academic Journey</h2>
+        <p class="section-subtitle">
+          Continuous learning in Business Analytics, AI, and Cybersecurity to stay at the forefront of technology.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="experience-icon-grid">
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://logo.clearbit.com/ontariotechu.ca" alt="Ontario Tech University" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'academic-year-icon\'>2024-2026</span>';">
+                </div>
+                <div class="experience-icon-label">Ontario Tech</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">2024-2026</div>
+                  <h3 class="experience-role">Master of Business Analytics & AI</h3>
+                  <div class="experience-company">Ontario Tech University</div>
+                  <div class="experience-meta">Oshawa, Ontario, Canada</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>Data analytics, machine learning, and AI applications</li>
+                      <li>Data visualization and storytelling</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://logo.clearbit.com/coventry.ac.uk" alt="Coventry University" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'academic-year-icon\'>2025</span>';">
+                </div>
+                <div class="experience-icon-label">Coventry</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">2025</div>
+                  <h3 class="experience-role">Master of Science in Cyber Security – Distinction</h3>
+                  <div class="experience-company">Coventry University, UK – PSB Academy Singapore</div>
+                  <div class="experience-meta">Singapore</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>Distinction - Top Graduate Award</li>
+                      <li>Network security, cryptography, and risk management</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://www.iss.nus.edu.sg/Sitefinity/WebsiteTemplates/ISS/App_Themes/ISS/Images/branding-nus.png" alt="National University of Singapore - Institute of Systems Science" onerror="this.onerror=null; this.src='https://logo.clearbit.com/iss.nus.edu.sg'; this.onerror=function(){this.style.display='none'; this.parentElement.innerHTML='<span class=\'academic-year-icon\'>2012</span>';};">
+                </div>
+                <div class="experience-icon-label">NUS ISS</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">2012</div>
+                  <h3 class="experience-role">Graduate Diploma in Systems Analysis</h3>
+                  <div class="experience-company">National University of Singapore (ISS)</div>
+                  <div class="experience-meta">Singapore</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>Systems analysis and design</li>
+                      <li>Software engineering and enterprise architecture</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://logo.clearbit.com/ucsy.edu.mm" alt="University of Computer Studies, Yangon" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'academic-year-icon\'>2008</span>';">
+                </div>
+                <div class="experience-icon-label">UCS Yangon</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">2008</div>
+                  <h3 class="experience-role">Bachelor of Computer Science</h3>
+                  <div class="experience-company">University of Computer Studies, Yangon</div>
+                  <div class="experience-meta">Yangon, Myanmar</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>Computer science fundamentals</li>
+                      <li>Software development and algorithms</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="500">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://logo.clearbit.com/pmi.org" alt="PMI CAPM" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'bi bi-award-fill\'></i>';">
+                </div>
+                <div class="experience-icon-label">CAPM</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="experience-year">Cert</div>
+                <h3 class="experience-role">Certified Associate in Project Management (CAPM)</h3>
+                <div class="experience-company">Project Management Institute (PMI), United States of America</div>
+                <div class="experience-meta">Professional Certification</div>
+                <div class="experience-description">
+                  <ul>
+                    <li>Project management fundamentals</li>
+                    <li>PMI certified member</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="600">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft Azure" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'bi bi-microsoft\'></i>';">
+                </div>
+                <div class="experience-icon-label">Azure</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">Cert</div>
+                  <h3 class="experience-role">Microsoft Azure Fundamentals</h3>
+                  <div class="experience-company">Microsoft</div>
+                  <div class="experience-meta">Professional Certification</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>Cloud computing fundamentals</li>
+                      <li>Azure services and architecture</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="700">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://logo.clearbit.com/axelos.com" alt="AXELOS ITIL" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'bi bi-shield-check\'></i>';">
+                </div>
+                <div class="experience-icon-label">ITIL</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">Cert</div>
+                  <h3 class="experience-role">ITIL Foundation</h3>
+                  <div class="experience-company">AXELOS</div>
+                  <div class="experience-meta">Professional Certification</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>IT service management</li>
+                      <li>ITIL service lifecycle</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Experience</span>
+        <h2 class="section-title">Professional Journey</h2>
+        <p class="section-subtitle">
+          Over a decade of experience in IT systems engineering, automation, and enterprise support.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="experience-icon-grid">
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://logo.clearbit.com/deloitte.com" alt="Deloitte" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'bi bi-gear-fill\'></i>';">
+                </div>
+                <div class="experience-icon-label">Deloitte</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">Feb 2017 – Aug 2025</div>
+                  <h3 class="experience-role">Senior System Engineer</h3>
+                  <div class="experience-company">Deloitte Singapore</div>
+                  <div class="experience-meta">Singapore</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>Leveraged analytics and automation to reduce manual workloads, improve system uptime, and support decision-making</li>
+                      <li>Conducted root-cause investigations using log analysis and data patterns, reducing incident recurrence by 25%</li>
+                      <li>Delivered onboarding training for interns and new staff; simplified technical content for broad audiences</li>
+                      <li>Maintained SLA performance above 95% using ServiceNow dashboards and workflow monitoring</li>
+                      <li>Documented SOPs, troubleshooting guides, and knowledge base resources to support operational efficiency</li>
+                      <li>Collaborated with global IT, cloud, and cybersecurity teams on system improvements and problem resolution</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://logo.clearbit.com/fujixerox.com" alt="Fuji Xerox" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'bi bi-printer-fill\'></i>';">
+                </div>
+                <div class="experience-icon-label">Fuji Xerox</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">Nov 2014 – Sep 2016</div>
+                  <h3 class="experience-role">Solution Specialist (Post-Sales Support)</h3>
+                  <div class="experience-company">Fuji Xerox Singapore</div>
+                  <div class="experience-meta">Singapore</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>Conducted SQL-based investigations for system integration, performance issues, and authentication failures</li>
+                      <li>Managed UAT testing, requirement validation, and cross-system compatibility checks</li>
+                      <li>Contributed insights to improve ticket trends and system reliability</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://logo.clearbit.com/sofialys.com" alt="Sofialys Asia Pacific" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'bi bi-headset\'></i>';">
+                </div>
+                <div class="experience-icon-label">Sofialys</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">May 2013 – Nov 2014</div>
+                  <h3 class="experience-role">Software & Customer Support Engineer</h3>
+                  <div class="experience-company">Sofialys Asia Pacific</div>
+                  <div class="experience-meta">Singapore</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>Performed L2/L3 analysis for ad-tech systems using logs, SQL queries, and performance metrics</li>
+                      <li>Supported regression and performance testing for new releases</li>
+                      <li>Coordinated with global engineering teams to resolve complex technical issues</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/0f2e759eb455dd6e22ec" alt="iAPPS Singapore" onerror="this.onerror=null; this.src='https://logo.clearbit.com/iapps.com'; this.onerror=function(){this.style.display='none'; this.parentElement.innerHTML='<i class=\'bi bi-code-slash\'></i>';};">
+                </div>
+                <div class="experience-icon-label">iAPPS</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">Aug 2012 – Dec 2012</div>
+                  <h3 class="experience-role">Software Developer</h3>
+                  <div class="experience-company">iAPPS Singapore</div>
+                  <div class="experience-meta">Singapore</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>Developed dashboards, reporting modules, and API integrations using PHP, JS, and SQL</li>
+                      <li>Improved UI data accuracy through testing and validation with QA teams</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-icon-item" data-aos="fade-up" data-aos-delay="500">
+              <div class="experience-icon-wrapper">
+                <div class="experience-icon">
+                  <img src="https://logo.clearbit.com/streammedia.com" alt="StreamMedia" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'bi bi-bug-fill\'></i>';">
+                </div>
+                <div class="experience-icon-label">StreamMedia</div>
+              </div>
+              <div class="experience-details-card">
+                <div class="card-content">
+                  <div class="experience-year">Feb 2012 – Jul 2012</div>
+                  <h3 class="experience-role">Test Engineer & Junior Developer (Intern)</h3>
+                  <div class="experience-company">StreamMedia Singapore</div>
+                  <div class="experience-meta">Singapore</div>
+                  <div class="experience-description">
+                    <ul>
+                      <li>Conducted structured testing, defect analysis, and test reporting for mobile and web applications</li>
+                      <li>Identified data inconsistencies and contributed to system performance improvements</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects" style="background: var(--bg-light);">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Portfolio</span>
+        <h2 class="section-title">Data Storytelling & Visualization Projects</h2>
+        <p class="section-subtitle">
+          This portfolio assembles my major course deliverables into a cohesive professional body of work, 
+          demonstrating how I design human-centred data stories from concept to interactive artefact.
+        </p>
+        <div style="max-width: 800px; margin: 2rem auto 0; text-align: left;">
+          <h6 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-dark);">Course Learning Highlights</h6>
+          <ul style="font-size: 0.9375rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; padding-left: 1.5rem;">
+            <li>Storyboarding narrative structures that foreground human experience</li>
+            <li>Redesigning classic information graphics using modern, interactive techniques</li>
+            <li>Crafting persuasive infographics around live policy debates (e.g., immigration)</li>
+            <li>Designing group data stories on AI and affordability in Oshawa for targeted audiences</li>
+          </ul>
+          <h6 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-dark);">Tools & Methods</h6>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <span class="skill-tag">Storyboarding & wireframing</span>
+            <span class="skill-tag">Scrollytelling</span>
+            <span class="skill-tag">HTML / CSS</span>
+            <span class="skill-tag">Python, Pandas, Folium</span>
+            <span class="skill-tag">Chart.js & data viz libraries</span>
+            <span class="skill-tag">Infographic design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Project 1 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-badge">Inspiration · Census Data</span>
+              <h3 class="project-title">Singapore Census 2020 Inspiration</h3>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                Converting complex census data into simple, engaging visuals with themed sections on education, language, and households.
+              </p>
+              <div class="project-highlights">
+                <span class="project-highlight">
+                  <i class="bi bi-palette"></i>Interactive Design
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-people"></i>User-Friendly
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-lightbulb"></i>Design Inspiration
+                </span>
+              </div>
+              <ul class="project-features">
+                <li>Thematic grouping</li>
+                <li>Compact charts</li>
+                <li>Iconography</li>
+                <li>Color coding</li>
+              </ul>
+              <button class="btn-read-more" onclick="toggleReadMore(this, 'census')">
+                <span>Read More</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="project-read-more" id="readMore-census">
+                <div class="project-read-more-content">
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-lightbulb"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Design Lessons</h6>
+                    </div>
+                    <p class="read-more-item-content">Future iterations could integrate small interactive filters (e.g., age, gender, neighbourhood) and explanatory annotations that highlight policy implications of each trend.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-link-45deg"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Source</h6>
+                    </div>
+                    <p class="read-more-item-content">Singapore Department of Statistics - 2020 Census interactive infographics</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-project btn-project-primary" data-bs-toggle="modal" data-bs-target="#projectCensusModal">
+                <i class="bi bi-eye"></i>View Project
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-badge">Storyboarding · UX Narrative</span>
+              <h3 class="project-title">Emily's Path to Calm</h3>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                A human-centred scrollytelling story about student burnout and recovery. Follows Emily's journey from stress to balance through interactive data visualization.
+              </p>
+              <div class="project-highlights">
+                <span class="project-highlight">
+                  <i class="bi bi-heart"></i>Human-Centred
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-scroll"></i>Scrollytelling
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-graph-up"></i>Data-Driven
+                </span>
+              </div>
+              <ul class="project-features">
+                <li>Mind mapping</li>
+                <li>Digital wireframes</li>
+                <li>Interactive charts</li>
+                <li>Infographic design</li>
+              </ul>
+              <button class="btn-read-more" onclick="toggleReadMore(this, 'emily')">
+                <span>Read More</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="project-read-more" id="readMore-emily">
+                <div class="project-read-more-content">
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-bar-chart"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Key Visual Devices</h6>
+                    </div>
+                    <p class="read-more-item-content">Mind map, donut chart, line chart, radar chart, comparative panels</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Format</h6>
+                    </div>
+                    <p class="read-more-item-content">Scrollytelling storyboard</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-graph-up"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Metrics</h6>
+                    </div>
+                    <p class="read-more-item-content">Stress level over time, weekly time allocation, and "life quality assessment" before vs. after intervention</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-people"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Audience</h6>
+                    </div>
+                    <p class="read-more-item-content"><strong>Primary:</strong> Students and young adults (18–30) experiencing academic pressure.<br><br>
+                    <strong>Secondary:</strong> Educators and mental-health professionals who support this age group.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-project btn-project-primary" data-bs-toggle="modal" data-bs-target="#projectEmilyModal">
+                <i class="bi bi-file-earmark-pdf"></i>View Storyboard
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-badge">Spatial Analysis · Historical Data</span>
+              <h3 class="project-title">John Snow's Cholera Map Redesign</h3>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                Modern interactive redesign of John Snow's 1854 cholera map. Explore space, time, and distance relationships in the Soho outbreak through interactive visualizations.
+              </p>
+              <div class="project-highlights">
+                <span class="project-highlight">
+                  <i class="bi bi-geo-alt"></i>Interactive Map
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-filetype-py"></i>Python
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-clock-history"></i>Time Series
+                </span>
+              </div>
+              <ul class="project-features">
+                <li>Heatmaps</li>
+                <li>Distance analysis</li>
+                <li>Time-series charts</li>
+                <li>Before/after comparison</li>
+              </ul>
+              <button class="btn-read-more" onclick="toggleReadMore(this, 'snow')">
+                <span>Read More</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="project-read-more" id="readMore-snow">
+                <div class="project-read-more-content">
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-star"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Key Features</h6>
+                    </div>
+                    <p class="read-more-item-content">Distance-to-pump analysis bins deaths by distance and visualizes the drop-off. The redesign turns a static historical map into a living case study that explains how data helped overturn the "bad air" theory and support waterborne disease hypotheses.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Format</h6>
+                    </div>
+                    <p class="read-more-item-content">Jupyter notebook + HTML export</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-code-slash"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Tech Stack</h6>
+                    </div>
+                    <p class="read-more-item-content">Python, Pandas, Folium, HeatMapWithTime, Matplotlib</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-bullseye"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Audience & Purpose</h6>
+                    </div>
+                    <p class="read-more-item-content">Designed for students, instructors, and public-health audiences. The interactive environment allows users to explore space, time, and distance relationships in the Soho outbreak.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-project btn-project-primary" data-bs-toggle="modal" data-bs-target="#projectSnowModal">
+                <i class="bi bi-eye"></i>View Project
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-badge">Policy · Immigration Data</span>
+              <h3 class="project-title">Canada Immigration Infographic</h3>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                Dark-theme policy infographic explaining Canada's Immigration Levels Plan 2026–2028. Visualizes permanent and temporary immigration trends with interactive charts.
+              </p>
+              <div class="project-highlights">
+                <span class="project-highlight">
+                  <i class="bi bi-people"></i>Policy Focus
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-moon-stars"></i>Dark Theme
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-bar-chart"></i>Data Viz
+                </span>
+              </div>
+              <ul class="project-features">
+                <li>380K PR target</li>
+                <li>Multi-panel design</li>
+                <li>Provincial patterns</li>
+                <li>Student caps</li>
+              </ul>
+              <button class="btn-read-more" onclick="toggleReadMore(this, 'canada')">
+                <span>Read More</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="project-read-more" id="readMore-canada">
+                <div class="project-read-more-content">
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-palette"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Visual Narrative</h6>
+                    </div>
+                    <p class="read-more-item-content">The visual narrative moves from high-level targets through permanent-resident class splits, temporary-resident composition, and provincial arrival patterns, using a mix of bar charts, donut charts, icon strips, and regional spotlights.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-layout-text-window"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Format</h6>
+                    </div>
+                    <p class="read-more-item-content">Multi-panel infographic</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-brush"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Visual Style</h6>
+                    </div>
+                    <p class="read-more-item-content">Dark UI theme, neon accents, 3-colour palette, 3D isometric people strip</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-person-check"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Target Audience</h6>
+                    </div>
+                    <p class="read-more-item-content"><strong>Primary:</strong> Policymakers, higher-education leaders, employers, and community organizations.<br><br>
+                    <strong>Secondary:</strong> International students and migrant workers who seek a simple visual explanation of the changes.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-project btn-project-primary" data-bs-toggle="modal" data-bs-target="#projectCanadaModal">
+                <i class="bi bi-eye"></i>View Project
+              </button>
+              <button class="btn btn-project btn-project-outline" data-bs-toggle="modal" data-bs-target="#projectCanadaDesignModal">
+                <i class="bi bi-file-earmark-pdf"></i>Design Process
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Assignment 4 - Data Story -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-badge">Group Project · Data Story</span>
+              <h3 class="project-title">AI, Affordability, and Young Professionals in Oshawa</h3>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                A human-centred data story exploring how the AI economy affects job prospects and housing affordability for emerging professionals in Oshawa.
+              </p>
+              <div class="project-highlights">
+                <span class="project-highlight">
+                  <i class="bi bi-robot"></i>AI Economy
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-house-door"></i>Affordability
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-people"></i>Human-Centred
+                </span>
+              </div>
+              <ul class="project-features">
+                <li>AI-driven occupation shifts</li>
+                <li>Unemployment & job quality analysis</li>
+                <li>Rental affordability trends</li>
+                <li>StatsCan data (2021–2025)</li>
+              </ul>
+              <button class="btn-read-more" onclick="toggleReadMore(this, 'oshawa')">
+                <span>Read More</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="project-read-more" id="readMore-oshawa">
+                <div class="project-read-more-content">
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-question-circle"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Grounding Question</h6>
+                    </div>
+                    <p class="read-more-item-content">To what extent is AI affecting affordability for young professionals in Oshawa?</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-arrow-down-circle"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Introduction</h6>
+                    </div>
+                    <p class="read-more-item-content"><strong>Oshawa was affordable before AI.</strong> Now, rising rents, job disruption, and higher unemployment are making it harder to live here.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-exclamation-triangle"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Problem Statement</h6>
+                    </div>
+                    <p class="read-more-item-content"><strong>AI is reshaping job opportunities in Canada.</strong> We take the top few affected fields in Canada to compare them in Ontario. Key issues: <strong>Rent is increasing in Oshawa</strong> and <strong>Unemployment rate is increasing</strong>.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-lightbulb"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Our Take on Solution</h6>
+                    </div>
+                    <p class="read-more-item-content"><strong>Data Flow:</strong> Industry affected by AI in Canada Chart (all industries) → Data wrapper map for Canada<br><br>
+                    <strong>Analysis:</strong> Take the top 5 industries affected in Canada and find the job market in Ontario for those top 5 affected industries → Number of People in each industry Chart (Ontario) → Data wrapper map for Ontario<br><br>
+                    <strong>Visualizations:</strong> Bar charts showing Average Automation Risk (%) vs. Industry (Education, Entertainment, Finance, Healthcare, Manufacturing, Retail, Transportation, etc.)</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-person-badge"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Personas</h6>
+                    </div>
+                    <p class="read-more-item-content"><strong>Persona 1 - Jamie:</strong> AI graduate struggling to find stable work and manage student debt.<br><br>
+                    <strong>Persona 2 - Christina:</strong> Part-time finance analyst who learned AI to upskill and improve her career prospects.<br><br>
+                    <strong>Persona 3 - Catherine:</strong> Data analyst using AI tools to upskill and push for promotion while still facing affordability challenges.<br><br>
+                    <em>Interactive elements connect each persona to specific data points in the visualizations.</em></p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-check-circle"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Conclusion</h6>
+                    </div>
+                    <p class="read-more-item-content"><strong>Use AI to develop your skills.</strong> The data story demonstrates that while AI disrupts traditional job markets, those who adapt and learn AI tools can navigate the changing landscape more successfully.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-layout-text-window"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Format & Audience</h6>
+                    </div>
+                    <p class="read-more-item-content"><strong>Format:</strong> Scrollytelling explainer or browser-based interactive story<br><br>
+                    <strong>Target Audience:</strong> Government, universities, employers, banks, landlords, and graduating students.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-project btn-project-primary" data-bs-toggle="modal" data-bs-target="#projectOshawaStoryModal">
+                <i class="bi bi-eye"></i>View Project
+              </button>
+              <button class="btn btn-project btn-project-outline" data-bs-toggle="modal" data-bs-target="#projectOshawaProposalModal">
+                <i class="bi bi-file-earmark-text"></i>Proposal
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Tutorial Showcase 1 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-badge">Tutorial Showcase · Portfolio Artefact</span>
+              <h3 class="project-title">Tutorial 1 – [Replace with Tutorial Title]</h3>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                Short description of the tutorial task and how you extended it (e.g., enhanced a basic time-series dashboard with annotations, filters, or narrative panels).
+              </p>
+              <div class="project-highlights">
+                <span class="project-highlight">
+                  <i class="bi bi-graph-up-arrow"></i>Dashboard
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-pencil"></i>Enhanced
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-tools"></i>Portfolio-Ready
+                </span>
+              </div>
+              <ul class="project-features">
+                <li>Original skill practised in class</li>
+                <li>Customized for portfolio</li>
+                <li>Enhanced with annotations</li>
+                <li>Target audience focused</li>
+              </ul>
+              <button class="btn-read-more" onclick="toggleReadMore(this, 'tutorial1')">
+                <span>Read More</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="project-read-more" id="readMore-tutorial1">
+                <div class="project-read-more-content">
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-book"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Original Skill</h6>
+                    </div>
+                    <p class="read-more-item-content">Original skill practised in class.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-star"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Improvements</h6>
+                    </div>
+                    <p class="read-more-item-content">How you improved or customized it for this portfolio.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-bullseye"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Use Case</h6>
+                    </div>
+                    <p class="read-more-item-content">What your target audience could use it for.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-tools"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Tool & Type</h6>
+                    </div>
+                    <p class="read-more-item-content"><strong>Tool:</strong> [e.g., Flourish]<br><strong>Type:</strong> Dashboard</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-project btn-project-primary" data-bs-toggle="modal" data-bs-target="#projectTutorial1Modal">
+                <i class="bi bi-eye"></i>View Project
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: Tutorial Showcase 2 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="700">
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-badge">Tutorial Showcase · Portfolio Artefact</span>
+              <h3 class="project-title">Tutorial 2 – [Replace with Tutorial Title]</h3>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                Short description of a second tutorial artefact, such as a dashboard, chart collection, or interactive map that has been re-styled and cleaned up for external audiences.
+              </p>
+              <div class="project-highlights">
+                <span class="project-highlight">
+                  <i class="bi bi-palette"></i>Re-styled
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-bar-chart"></i>Comparative
+                </span>
+                <span class="project-highlight">
+                  <i class="bi bi-check-circle"></i>Portfolio-Ready
+                </span>
+              </div>
+              <ul class="project-features">
+                <li>Design adjustments</li>
+                <li>Pattern visualization</li>
+                <li>External audience focused</li>
+                <li>Clean presentation</li>
+              </ul>
+              <button class="btn-read-more" onclick="toggleReadMore(this, 'tutorial2')">
+                <span>Read More</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="project-read-more" id="readMore-tutorial2">
+                <div class="project-read-more-content">
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-brush"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Design Adjustments</h6>
+                    </div>
+                    <p class="read-more-item-content">Key design adjustments you made.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-graph-up"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Story & Pattern</h6>
+                    </div>
+                    <p class="read-more-item-content">What story or pattern the visualization reveals.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-people"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Beneficiaries</h6>
+                    </div>
+                    <p class="read-more-item-content">Who would benefit from this artefact.</p>
+                  </div>
+                  <div class="read-more-item">
+                    <div class="read-more-item-header">
+                      <div class="read-more-item-icon">
+                        <i class="bi bi-tools"></i>
+                      </div>
+                      <h6 class="read-more-item-title">Tool & Type</h6>
+                    </div>
+                    <p class="read-more-item-content"><strong>Tool:</strong> [e.g., Datawrapper]<br><strong>Type:</strong> Comparative chart</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btn btn-project btn-project-primary" data-bs-toggle="modal" data-bs-target="#projectTutorial2Modal">
+                <i class="bi bi-eye"></i>View Project
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap Data Story Section -->
+  <section class="section" id="roadmap-story" style="background: var(--bg-white);">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Data Story</span>
+        <h2 class="section-title">AI Impact on Affordability: A Timeline</h2>
+        <p class="section-subtitle">
+          Scroll through the timeline to see how AI-driven changes have affected rental affordability and unemployment rates for young professionals in Oshawa from 2021 to 2025.
+        </p>
+      </div>
+
+      <div class="roadmap-container">
+        <div class="roadmap-chart-container">
+          <div class="roadmap-chart-title">Rental Affordability & Unemployment Trends (2021-2025)</div>
+          <div class="roadmap-chart-wrapper">
+            <canvas id="mainRoadmapLineChart" class="roadmap-chart-canvas"></canvas>
+          </div>
+        </div>
+        
+        <div class="roadmap-milestones">
+          <div class="roadmap-milestone" data-year="2021" data-rent="1200" data-unemployment="6.2">
+            <div class="roadmap-milestone-year">2021</div>
+            <div class="roadmap-milestone-title">Pre-AI Impact Era</div>
+            <div class="roadmap-milestone-description">
+              Oshawa was relatively affordable with average rent at $1,200/month. Unemployment rate at 6.2%. 
+              Young professionals could find stable employment and manage housing costs.
+            </div>
+          </div>
+          
+          <div class="roadmap-milestone" data-year="2022" data-rent="1350" data-unemployment="6.8">
+            <div class="roadmap-milestone-year">2022</div>
+            <div class="roadmap-milestone-title">Early AI Disruption</div>
+            <div class="roadmap-milestone-description">
+              AI tools begin reshaping job markets. Rent increases to $1,350/month (+12.5%). 
+              Unemployment rises to 6.8% as traditional roles face automation pressure.
+            </div>
+          </div>
+          
+          <div class="roadmap-milestone" data-year="2023" data-rent="1520" data-unemployment="7.5">
+            <div class="roadmap-milestone-year">2023</div>
+            <div class="roadmap-milestone-title">Accelerated Change</div>
+            <div class="roadmap-milestone-description">
+              Major industries adopt AI solutions. Rent jumps to $1,520/month (+26.7% from 2021). 
+              Unemployment reaches 7.5%. Young professionals face increased competition for AI-enhanced roles.
+            </div>
+          </div>
+          
+          <div class="roadmap-milestone" data-year="2024" data-rent="1680" data-unemployment="8.1">
+            <div class="roadmap-milestone-year">2024</div>
+            <div class="roadmap-milestone-title">Affordability Crisis</div>
+            <div class="roadmap-milestone-description">
+              Rent reaches $1,680/month (+40% from 2021). Unemployment at 8.1%. 
+              Gap widens between those with AI skills and those without. Student debt becomes harder to manage.
+            </div>
+          </div>
+          
+          <div class="roadmap-milestone" data-year="2025" data-rent="1850" data-unemployment="8.5">
+            <div class="roadmap-milestone-year">2025</div>
+            <div class="roadmap-milestone-title">Current Reality</div>
+            <div class="roadmap-milestone-description">
+              Rent at $1,850/month (+54% from 2021). Unemployment at 8.5%. 
+              Young professionals must adapt: upskilling in AI becomes essential for career survival and affordability.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Get In Touch</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">
+          I'm open to opportunities in Analytics, AI, Data Science, and IT roles. Feel free to reach out!
+        </p>
+      </div>
+
+      <div class="contact-icons" data-aos="fade-up" data-aos-delay="100">
+        <a href="https://www.google.com/maps/search/?api=1&query=868+Roundelay+Drive+Oshawa+Ontario+L1J+7T9" target="_blank" rel="noopener noreferrer" class="contact-icon-link">
+          <div class="contact-icon-circle">
+            <i class="bi bi-geo-alt-fill"></i>
+          </div>
+          <span class="contact-icon-label">Location</span>
+        </a>
+
+        <a href="tel:+12894042909" class="contact-icon-link">
+          <div class="contact-icon-circle">
+            <i class="bi bi-telephone-fill"></i>
+          </div>
+          <span class="contact-icon-label">Phone</span>
+        </a>
+
+        <a href="mailto:mickeymini.lov@gmail.com" class="contact-icon-link">
+          <div class="contact-icon-circle">
+            <i class="bi bi-envelope-fill"></i>
+          </div>
+          <span class="contact-icon-label">Email</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ei-myat-mon-b635b4320" target="_blank" rel="noopener noreferrer" class="contact-icon-link">
+          <div class="contact-icon-circle">
+            <i class="bi bi-linkedin"></i>
+          </div>
+          <span class="contact-icon-label">LinkedIn</span>
+        </a>
+      </div>
+
+      <div class="contact-info-minimal" data-aos="fade-up" data-aos-delay="200">
+        <div class="contact-status-title">
+          <i class="bi bi-briefcase-fill"></i>
+          <span>Work Status</span>
+        </div>
+        <div class="contact-badges-minimal">
+          <span class="contact-badge-minimal contact-badge-permit">
+            <i class="bi bi-check-circle-fill"></i>
+            Student Permit & CO-OP Work Permit
+          </span>
+          <span class="contact-badge-minimal contact-badge-relocation">
+            <i class="bi bi-geo-alt"></i>
+            Open to Relocation
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="mb-0">&copy; <span id="currentYear"></span> Ei Myat Mon. All rights reserved.</p>
+      <p class="mt-2 mb-0" style="font-size: 0.875rem; opacity: 0.7;">
+        Business Analytics & AI Professional | Data Storytelling Enthusiast
+      </p>
+    </div>
+  </footer>
+
+  <!-- Resume Modal -->
+  <div class="modal fade" id="resumeModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-file-earmark-pdf me-2"></i>Resume - Ei Myat Mon
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="data/EMM_CA_Resume_20251121.pdf" class="project-iframe" title="Resume"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a href="data/EMM_CA_Resume_20251121.pdf" target="_blank" class="btn btn-primary">
+            <i class="bi bi-box-arrow-up-right me-2"></i>View Full Page
+          </a>
+          <a href="data/EMM_CA_Resume_20251121.pdf" download class="btn btn-outline-primary">
+            <i class="bi bi-download me-2"></i>Download Resume
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Modals -->
+  <div class="modal fade" id="projectCensusModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-bar-chart me-2"></i>Singapore Census 2020 Inspiration
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="data/inspriation.html" class="project-iframe" title="Singapore Census Project"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a href="data/inspriation.html" target="_blank" class="btn btn-primary">
+            <i class="bi bi-box-arrow-up-right me-2"></i>View Full Page
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="projectEmilyModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-heart me-2"></i>Emily's Path to Calm - Storyboard
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body pdf-viewer-no-download">
+          <iframe src="data/assignment1.pdf#toolbar=0&navpanes=0&scrollbar=0" class="project-iframe" title="Emily's Storyboard"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a href="data/assignment1_viewer.html" target="_blank" class="btn btn-primary">
+            <i class="bi bi-box-arrow-up-right me-2"></i>View Full Page
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="projectSnowModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-geo-alt me-2"></i>John Snow's Cholera Map Redesign
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="data/Snows_cholera_map_NO_CODE.html" class="project-iframe" title="John Snow Project"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a href="data/Snows_cholera_map_NO_CODE.html" target="_blank" class="btn btn-primary">
+            <i class="bi bi-box-arrow-up-right me-2"></i>View Full Page
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="projectCanadaModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-people me-2"></i>Canada Immigration Infographic
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="data/Canada_Immigration_Iteration_3.html" class="project-iframe" title="Canada Immigration Project"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a href="data/Canada_Immigration_Iteration_3.html" target="_blank" class="btn btn-primary">
+            <i class="bi bi-box-arrow-up-right me-2"></i>View Full Page
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="projectCanadaDesignModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-file-earmark-pdf me-2"></i>Canada Immigration - Design Process
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="data/assignment3_viewer.html" class="project-iframe" title="Design Process"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a href="data/assignment3_viewer.html" target="_blank" class="btn btn-primary">
+            <i class="bi bi-box-arrow-up-right me-2"></i>View Full Page
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="projectOshawaStoryModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-robot me-2"></i>AI, Affordability, and Young Professionals in Oshawa
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="roadmap-container">
+            <div class="roadmap-chart-container">
+              <div class="roadmap-chart-title">Rental Affordability & Unemployment Trends (2021-2025)</div>
+              <div class="roadmap-chart-wrapper">
+                <canvas id="roadmapLineChart" class="roadmap-chart-canvas"></canvas>
+              </div>
+            </div>
+            
+            <div class="roadmap-milestones">
+              <div class="roadmap-milestone" data-year="2021" data-rent="1200" data-unemployment="6.2">
+                <div class="roadmap-milestone-year">2021</div>
+                <div class="roadmap-milestone-title">Pre-AI Impact Era</div>
+                <div class="roadmap-milestone-description">
+                  Oshawa was relatively affordable with average rent at $1,200/month. Unemployment rate at 6.2%. 
+                  Young professionals could find stable employment and manage housing costs.
+                </div>
+              </div>
+              
+              <div class="roadmap-milestone" data-year="2022" data-rent="1350" data-unemployment="6.8">
+                <div class="roadmap-milestone-year">2022</div>
+                <div class="roadmap-milestone-title">Early AI Disruption</div>
+                <div class="roadmap-milestone-description">
+                  AI tools begin reshaping job markets. Rent increases to $1,350/month (+12.5%). 
+                  Unemployment rises to 6.8% as traditional roles face automation pressure.
+                </div>
+              </div>
+              
+              <div class="roadmap-milestone" data-year="2023" data-rent="1520" data-unemployment="7.5">
+                <div class="roadmap-milestone-year">2023</div>
+                <div class="roadmap-milestone-title">Accelerated Change</div>
+                <div class="roadmap-milestone-description">
+                  Major industries adopt AI solutions. Rent jumps to $1,520/month (+26.7% from 2021). 
+                  Unemployment reaches 7.5%. Young professionals face increased competition for AI-enhanced roles.
+                </div>
+              </div>
+              
+              <div class="roadmap-milestone" data-year="2024" data-rent="1680" data-unemployment="8.1">
+                <div class="roadmap-milestone-year">2024</div>
+                <div class="roadmap-milestone-title">Affordability Crisis</div>
+                <div class="roadmap-milestone-description">
+                  Rent reaches $1,680/month (+40% from 2021). Unemployment at 8.1%. 
+                  Gap widens between those with AI skills and those without. Student debt becomes harder to manage.
+                </div>
+              </div>
+              
+              <div class="roadmap-milestone" data-year="2025" data-rent="1850" data-unemployment="8.5">
+                <div class="roadmap-milestone-year">2025</div>
+                <div class="roadmap-milestone-title">Current Reality</div>
+                <div class="roadmap-milestone-description">
+                  Rent at $1,850/month (+54% from 2021). Unemployment at 8.5%. 
+                  Young professionals must adapt: upskilling in AI becomes essential for career survival and affordability.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="https://kiya69.github.io/data-story/" target="_blank" class="btn btn-primary">
+            <i class="bi bi-box-arrow-up-right me-2"></i>View Full Page
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="projectOshawaProposalModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-file-earmark-text me-2"></i>AI, Affordability, and Young Professionals in Oshawa - Project Proposal
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="data/proposal_viewer.html" class="project-iframe" title="Project Proposal"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a href="data/proposal_viewer.html" target="_blank" class="btn btn-primary">
+            <i class="bi bi-box-arrow-up-right me-2"></i>View Full Page
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tutorial Modals -->
+  <div class="modal fade" id="projectTutorial1Modal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-graph-up me-2"></i>Tutorial 1 – [Replace with Tutorial Title]
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div style="padding: 2rem; text-align: center;">
+            <i class="bi bi-file-earmark-text" style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;"></i>
+            <h4>Tutorial Content</h4>
+            <p style="color: var(--text-muted); margin-top: 1rem;">
+              This tutorial showcase will be updated with the final tutorial artefact once completed.
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="projectTutorial2Modal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-bar-chart me-2"></i>Tutorial 2 – [Replace with Tutorial Title]
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div style="padding: 2rem; text-align: center;">
+            <i class="bi bi-file-earmark-text" style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;"></i>
+            <h4>Tutorial Content</h4>
+            <p style="color: var(--text-muted); margin-top: 1rem;">
+              This tutorial showcase will be updated with the final tutorial artefact once completed.
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+
+    // Update year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Read More toggle function
+    function toggleReadMore(button, projectId) {
+      const readMoreSection = document.getElementById('readMore-' + projectId);
+      const isExpanded = readMoreSection.classList.contains('expanded');
+      
+      if (isExpanded) {
+        readMoreSection.classList.remove('expanded');
+        button.classList.remove('expanded');
+        button.querySelector('span').textContent = 'Read More';
+      } else {
+        readMoreSection.classList.add('expanded');
+        button.classList.add('expanded');
+        button.querySelector('span').textContent = 'Read Less';
+      }
+    }
+
+    // Make function globally accessible
+    window.toggleReadMore = toggleReadMore;
+
+    // Academic Journey Arrow Navigation
+    function scrollAcademic(direction) {
+      const wrapper = document.getElementById('academicWrapper');
+      const scrollAmount = 340; // Card width + gap
+      
+      if (direction === 'left') {
+        wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+      
+      // Update button states after scroll
+      setTimeout(() => {
+        updateAcademicNavButtons();
+      }, 300);
+    }
+
+    function scrollExperience(direction) {
+      const wrapper = document.getElementById('experienceWrapper');
+      const scrollAmount = 340; // Card width + gap
+      
+      if (direction === 'left') {
+        wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+      
+      // Update button states after scroll
+      setTimeout(() => {
+        updateExperienceNavButtons();
+      }, 300);
+    }
+
+    function updateExperienceNavButtons() {
+      const wrapper = document.getElementById('experienceWrapper');
+      const leftBtn = document.getElementById('experienceNavLeft');
+      const rightBtn = document.getElementById('experienceNavRight');
+      
+      if (leftBtn && rightBtn && wrapper) {
+        // Check if at the start
+        if (wrapper.scrollLeft <= 0) {
+          leftBtn.classList.add('disabled');
+        } else {
+          leftBtn.classList.remove('disabled');
+        }
+        
+        // Check if at the end
+        if (wrapper.scrollLeft >= wrapper.scrollWidth - wrapper.clientWidth - 10) {
+          rightBtn.classList.add('disabled');
+        } else {
+          rightBtn.classList.remove('disabled');
+        }
+      }
+    }
+
+    function updateAcademicNavButtons() {
+      const wrapper = document.getElementById('academicWrapper');
+      const leftBtn = document.getElementById('academicNavLeft');
+      const rightBtn = document.getElementById('academicNavRight');
+      
+      if (leftBtn && rightBtn && wrapper) {
+        // Check if at start
+        if (wrapper.scrollLeft <= 0) {
+          leftBtn.classList.add('disabled');
+        } else {
+          leftBtn.classList.remove('disabled');
+        }
+        
+        // Check if at end
+        if (wrapper.scrollLeft >= wrapper.scrollWidth - wrapper.clientWidth - 10) {
+          rightBtn.classList.add('disabled');
+        } else {
+          rightBtn.classList.remove('disabled');
+        }
+      }
+    }
+
+    // Initialize navigation buttons on load
+    document.addEventListener('DOMContentLoaded', function() {
+      const academicWrapper = document.getElementById('academicWrapper');
+      if (academicWrapper) {
+        updateAcademicNavButtons();
+        
+        // Update on scroll
+        academicWrapper.addEventListener('scroll', updateAcademicNavButtons);
+      }
+
+      const experienceWrapper = document.getElementById('experienceWrapper');
+      if (experienceWrapper) {
+        updateExperienceNavButtons();
+        
+        // Update on scroll
+        experienceWrapper.addEventListener('scroll', updateExperienceNavButtons);
+      }
+
+      // Create animated data background
+      createDataBackground();
+
+      // Add click handlers for expand/collapse experience items
+      const experienceItems = document.querySelectorAll('#experience .experience-icon-item');
+      experienceItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.stopPropagation();
+          // Close other items
+          experienceItems.forEach(otherItem => {
+            if (otherItem !== this) {
+              otherItem.classList.remove('active');
+            }
+          });
+          // Toggle current item
+          this.classList.toggle('active');
+        });
+      });
+
+      // Add click handlers for expand/collapse education items
+      const educationItems = document.querySelectorAll('#education .experience-icon-item');
+      educationItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.stopPropagation();
+          // Close other items
+          educationItems.forEach(otherItem => {
+            if (otherItem !== this) {
+              otherItem.classList.remove('active');
+            }
+          });
+          // Toggle current item
+          this.classList.toggle('active');
+        });
+      });
+
+      // Close details when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.experience-icon-item')) {
+          experienceItems.forEach(item => item.classList.remove('active'));
+          educationItems.forEach(item => item.classList.remove('active'));
+        }
+      });
+    });
+
+    // Create animated data visualization background
+    function createDataBackground() {
+      const background = document.getElementById('dataBackground');
+      if (!background) return;
+
+      // Create data nodes - more visible
+      for (let i = 0; i < 40; i++) {
+        const node = document.createElement('div');
+        node.className = 'data-node';
+        node.style.left = Math.random() * 100 + '%';
+        node.style.top = Math.random() * 100 + '%';
+        node.style.animationDelay = Math.random() * 3 + 's';
+        node.style.animationDuration = (2 + Math.random() * 2) + 's';
+        // Add random colors
+        const colors = [
+          'rgba(99, 102, 241, 1)',
+          'rgba(59, 130, 246, 1)',
+          'rgba(139, 92, 246, 1)',
+          'rgba(236, 72, 153, 0.9)'
+        ];
+        node.style.background = colors[Math.floor(Math.random() * colors.length)];
+        background.appendChild(node);
+      }
+
+      // Create data connections - more visible
+      for (let i = 0; i < 20; i++) {
+        const connection = document.createElement('div');
+        connection.className = 'data-connection';
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 100;
+        const length = 150 + Math.random() * 250;
+        const angle = Math.random() * 360;
+        
+        connection.style.left = startX + '%';
+        connection.style.top = startY + '%';
+        connection.style.width = length + 'px';
+        connection.style.transform = `rotate(${angle}deg)`;
+        connection.style.animationDelay = Math.random() * 4 + 's';
+        connection.style.animationDuration = (3 + Math.random() * 2) + 's';
+        background.appendChild(connection);
+      }
+
+      // Create mini charts - more visible
+      for (let i = 0; i < 8; i++) {
+        const chart = document.createElement('div');
+        chart.className = 'data-chart';
+        chart.style.left = Math.random() * 75 + '%';
+        chart.style.top = Math.random() * 75 + '%';
+        chart.style.opacity = 0.3;
+        
+        // Add bars to chart
+        for (let j = 0; j < 5; j++) {
+          const bar = document.createElement('div');
+          bar.className = 'chart-bar';
+          bar.style.left = (j * 30 + 5) + 'px';
+          bar.style.width = '20px';
+          bar.style.animationDelay = (j * 0.2) + 's';
+          chart.appendChild(bar);
+        }
+        
+        background.appendChild(chart);
+      }
+    }
+
+    // Roadmap Scroll-Triggered Line Chart
+    let roadmapChart = null;
+    let roadmapMilestones = [];
+    let mainRoadmapMilestones = [];
+
+    function initRoadmapChart(canvasId, containerSelector) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return false;
+
+      const container = document.querySelector(containerSelector);
+      if (!container) return false;
+
+      const milestones = container.querySelectorAll('.roadmap-milestone');
+      
+      if (milestones.length === 0) return false;
+
+      // Collect milestone data
+      const milestoneData = Array.from(milestones).map(m => ({
+        year: parseInt(m.dataset.year),
+        rent: parseFloat(m.dataset.rent),
+        unemployment: parseFloat(m.dataset.unemployment),
+        element: m
+      }));
+
+      // Set canvas size
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+
+      // Store milestones based on canvas ID
+      if (canvasId === 'roadmapLineChart') {
+        roadmapMilestones = milestoneData;
+      } else if (canvasId === 'mainRoadmapLineChart') {
+        mainRoadmapMilestones = milestoneData;
+      }
+
+      // Initial chart render
+      updateRoadmapChart(0, canvasId);
+      return true;
+    }
+
+    function updateRoadmapChart(activeIndex, canvasId = 'roadmapLineChart') {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+
+      const milestones = canvasId === 'roadmapLineChart' ? roadmapMilestones : mainRoadmapMilestones;
+      if (!milestones || milestones.length === 0) return;
+
+      const ctx = canvas.getContext('2d');
+      const width = canvas.width;
+      const height = canvas.height;
+      const padding = { top: 40, right: 40, bottom: 60, left: 60 };
+
+      // Clear canvas
+      ctx.clearRect(0, 0, width, height);
+
+      // Determine how many data points to show
+      const dataPoints = activeIndex + 1;
+      const visibleData = roadmapMilestones.slice(0, dataPoints);
+
+      if (visibleData.length === 0) return;
+
+      // Calculate scales
+      const chartWidth = width - padding.left - padding.right;
+      const chartHeight = height - padding.top - padding.bottom;
+
+      const minRent = Math.min(...roadmapMilestones.map(d => d.rent));
+      const maxRent = Math.max(...roadmapMilestones.map(d => d.rent));
+      const rentRange = maxRent - minRent || 1;
+
+      const minUnemployment = Math.min(...roadmapMilestones.map(d => d.unemployment));
+      const maxUnemployment = Math.max(...roadmapMilestones.map(d => d.unemployment));
+      const unemploymentRange = maxUnemployment - minUnemployment || 1;
+
+      // Draw grid
+      ctx.strokeStyle = '#e2e8f0';
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 4; i++) {
+        const y = padding.top + (chartHeight / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(padding.left, y);
+        ctx.lineTo(width - padding.right, y);
+        ctx.stroke();
+      }
+
+      // Draw axes
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(padding.left, padding.top);
+      ctx.lineTo(padding.left, height - padding.bottom);
+      ctx.lineTo(width - padding.right, height - padding.bottom);
+      ctx.stroke();
+
+      // Draw rent line (left axis)
+      if (visibleData.length > 1) {
+        ctx.strokeStyle = '#6366f1';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        visibleData.forEach((point, i) => {
+          const x = padding.left + (chartWidth / (visibleData.length - 1)) * i;
+          const y = padding.top + chartHeight - ((point.rent - minRent) / rentRange) * chartHeight;
+          if (i === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        });
+        ctx.stroke();
+
+        // Draw rent points
+        ctx.fillStyle = '#6366f1';
+        visibleData.forEach((point, i) => {
+          const x = padding.left + (chartWidth / (visibleData.length - 1)) * i;
+          const y = padding.top + chartHeight - ((point.rent - minRent) / rentRange) * chartHeight;
+          ctx.beginPath();
+          ctx.arc(x, y, 6, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        });
+      }
+
+      // Draw unemployment line (right axis, scaled)
+      if (visibleData.length > 1) {
+        ctx.strokeStyle = '#ec4899';
+        ctx.lineWidth = 3;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        visibleData.forEach((point, i) => {
+          const x = padding.left + (chartWidth / (visibleData.length - 1)) * i;
+          // Scale unemployment to fit chart (multiply by 200 to match rent scale roughly)
+          const scaledUnemployment = (point.unemployment - minUnemployment) / unemploymentRange;
+          const y = padding.top + chartHeight - scaledUnemployment * chartHeight;
+          if (i === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        });
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Draw unemployment points
+        ctx.fillStyle = '#ec4899';
+        visibleData.forEach((point, i) => {
+          const x = padding.left + (chartWidth / (visibleData.length - 1)) * i;
+          const scaledUnemployment = (point.unemployment - minUnemployment) / unemploymentRange;
+          const y = padding.top + chartHeight - scaledUnemployment * chartHeight;
+          ctx.beginPath();
+          ctx.arc(x, y, 6, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        });
+      }
+
+      // Draw labels
+      ctx.fillStyle = '#1e293b';
+      ctx.font = '12px Inter';
+      ctx.textAlign = 'center';
+      visibleData.forEach((point, i) => {
+        const x = padding.left + (chartWidth / (visibleData.length - 1)) * i;
+        ctx.fillText(point.year.toString(), x, height - padding.bottom + 20);
+      });
+
+      // Y-axis labels (rent)
+      ctx.textAlign = 'right';
+      ctx.fillStyle = '#6366f1';
+      for (let i = 0; i <= 4; i++) {
+        const value = minRent + (rentRange / 4) * (4 - i);
+        const y = padding.top + (chartHeight / 4) * i;
+        ctx.fillText('$' + Math.round(value), padding.left - 10, y + 4);
+      }
+
+      // Y-axis labels (unemployment, right side)
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#ec4899';
+      for (let i = 0; i <= 4; i++) {
+        const value = minUnemployment + (unemploymentRange / 4) * (4 - i);
+        const y = padding.top + (chartHeight / 4) * i;
+        ctx.fillText(value.toFixed(1) + '%', width - padding.right + 10, y + 4);
+      }
+
+      // Legend
+      ctx.fillStyle = '#1e293b';
+      ctx.font = 'bold 14px Inter';
+      ctx.textAlign = 'left';
+      ctx.fillText('Rent ($/month)', padding.left, padding.top - 20);
+      ctx.fillStyle = '#ec4899';
+      ctx.fillText('Unemployment (%)', width - padding.right - 150, padding.top - 20);
+    }
+
+    function handleRoadmapScroll(containerSelector, canvasId = 'roadmapLineChart') {
+      const container = document.querySelector(containerSelector);
+      if (!container) return;
+
+      const milestones = container.querySelectorAll('.roadmap-milestone');
+      if (milestones.length === 0) return;
+
+      // Check if it's a modal or main page
+      const isModal = containerSelector.includes('modal-body');
+      const scrollContainer = isModal ? container : window;
+      const scrollTop = isModal ? container.scrollTop : window.pageYOffset;
+      const viewportHeight = isModal ? container.clientHeight : window.innerHeight;
+
+      let activeIndex = -1;
+      let minDistance = Infinity;
+      const viewportCenter = isModal ? scrollTop + viewportHeight / 2 : scrollTop + viewportHeight / 2;
+
+      milestones.forEach((milestone, index) => {
+        const rect = milestone.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        const milestoneTop = isModal ? (rect.top - containerRect.top + scrollTop) : (rect.top + scrollTop);
+        const milestoneCenter = milestoneTop + milestone.offsetHeight / 2;
+        
+        const distance = Math.abs(milestoneCenter - (isModal ? (scrollTop + viewportHeight / 2) : (scrollTop + viewportHeight / 2)));
+
+        // Check if milestone is near viewport center
+        if (distance < viewportHeight / 2) {
+          if (distance < minDistance) {
+            minDistance = distance;
+            activeIndex = index;
+          }
+        }
+
+        // Update active class based on scroll position
+        const checkPoint = isModal ? (scrollTop + viewportHeight / 2) : (scrollTop + viewportHeight / 2);
+        if (milestoneTop + milestone.offsetHeight < checkPoint + 100) {
+          milestone.classList.add('active');
+        } else {
+          milestone.classList.remove('active');
+        }
+      });
+
+      // If no milestone is in center, find the one closest to center
+      if (activeIndex === -1) {
+        milestones.forEach((milestone, index) => {
+          const rect = milestone.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          const milestoneTop = isModal ? (rect.top - containerRect.top + scrollTop) : (rect.top + scrollTop);
+          const milestoneCenter = milestoneTop + milestone.offsetHeight / 2;
+          const checkPoint = isModal ? (scrollTop + viewportHeight / 2) : (scrollTop + viewportHeight / 2);
+          const distance = Math.abs(milestoneCenter - checkPoint);
+          
+          if (distance < minDistance) {
+            minDistance = distance;
+            activeIndex = index;
+          }
+        });
+      }
+
+      // Update chart with the number of milestones that have been scrolled past
+      let chartIndex = 0;
+      const checkPoint = isModal ? (scrollTop + viewportHeight / 2) : (scrollTop + viewportHeight / 2);
+      milestones.forEach((milestone, index) => {
+        const rect = milestone.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        const milestoneTop = isModal ? (rect.top - containerRect.top + scrollTop) : (rect.top + scrollTop);
+        if (milestoneTop < checkPoint) {
+          chartIndex = index + 1;
+        }
+      });
+
+      updateRoadmapChart(Math.min(chartIndex, milestones.length - 1), canvasId);
+    }
+
+
+    // Initialize roadmap chart for main page
+    document.addEventListener('DOMContentLoaded', function() {
+      const mainRoadmapSection = document.getElementById('roadmap-story');
+      if (mainRoadmapSection) {
+        setTimeout(() => {
+          initRoadmapChart('mainRoadmapLineChart', '#roadmap-story .roadmap-container');
+          handleRoadmapScroll('#roadmap-story .roadmap-container', 'mainRoadmapLineChart');
+        }, 100);
+
+        // Handle scroll for main page
+        window.addEventListener('scroll', function() {
+          const rect = mainRoadmapSection.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            handleRoadmapScroll('#roadmap-story .roadmap-container', 'mainRoadmapLineChart');
+          }
+        });
+
+        // Handle resize
+        window.addEventListener('resize', function() {
+          const canvas = document.getElementById('mainRoadmapLineChart');
+          if (canvas) {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            handleRoadmapScroll('#roadmap-story .roadmap-container', 'mainRoadmapLineChart');
+          }
+        });
+      }
+
+      // Initialize career roadmap with automation risk chart
+      const careerRoadmapSection = document.getElementById('career-roadmap');
+      if (careerRoadmapSection) {
+        // Wait for section to be visible, then initialize
+        const initChart = () => {
+          const success = initAutomationRiskChart();
+          if (!success) {
+            // Retry if canvas not ready
+            setTimeout(initChart, 100);
+          } else {
+            handleAutomationRiskScroll();
+          }
+        };
+        
+        // Initialize immediately
+        setTimeout(initChart, 100);
+        
+        // Also initialize when section comes into view
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              initChart();
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        observer.observe(careerRoadmapSection);
+
+        window.addEventListener('scroll', function() {
+          const rect = careerRoadmapSection.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            handleAutomationRiskScroll();
+          }
+        });
+
+        window.addEventListener('resize', function() {
+          const canvas = document.getElementById('automationRiskChart');
+          if (canvas) {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            handleAutomationRiskScroll();
+          }
+        });
+
+        // Interactive buttons functionality
+        const viewRoadmapBtn = document.getElementById('viewRoadmapBtn');
+        const comparePathsBtn = document.getElementById('comparePathsBtn');
+        const careerTipsBtn = document.getElementById('careerTipsBtn');
+        const roadmapMilestones = careerRoadmapSection.querySelector('.roadmap-milestones');
+
+        if (viewRoadmapBtn) {
+          viewRoadmapBtn.addEventListener('click', function() {
+            if (roadmapMilestones) {
+              roadmapMilestones.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        }
+
+        if (comparePathsBtn) {
+          comparePathsBtn.addEventListener('click', function() {
+            // Show comparison view - could toggle between different career paths
+            alert('Compare Paths: This feature would show a comparison between traditional career paths vs. AI-enhanced career paths.');
+          });
+        }
+
+        if (careerTipsBtn) {
+          careerTipsBtn.addEventListener('click', function() {
+            // Show career tips modal or section
+            const tipsSection = careerRoadmapSection.querySelector('.row.mt-5');
+            if (tipsSection) {
+              tipsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        }
+      }
+    });
+
+    // Initialize roadmap chart when modal opens
+    const oshawaModal = document.getElementById('projectOshawaStoryModal');
+    if (oshawaModal) {
+      oshawaModal.addEventListener('shown.bs.modal', function() {
+        setTimeout(() => {
+          if (initRoadmapChart('roadmapLineChart', '#projectOshawaStoryModal .roadmap-container')) {
+            handleRoadmapScroll('#projectOshawaStoryModal .modal-body', 'roadmapLineChart');
+            
+            // Set up scroll listener for modal body
+            const modalBody = this.querySelector('.modal-body');
+            if (modalBody) {
+              modalBody.addEventListener('scroll', function() {
+                handleRoadmapScroll('#projectOshawaStoryModal .modal-body', 'roadmapLineChart');
+              });
+            }
+          }
+        }, 100);
+      });
+
+      // Handle resize to update chart
+      window.addEventListener('resize', function() {
+        if (oshawaModal.classList.contains('show')) {
+          const canvas = document.getElementById('roadmapLineChart');
+          if (canvas) {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            handleRoadmapScroll('#projectOshawaStoryModal .modal-body', 'roadmapLineChart');
+          }
+        }
+      });
+    }
+
+    // Prevent downloads for storyboard PDF (not resume)
+    const storyboardModal = document.getElementById('projectEmilyModal');
+    if (storyboardModal) {
+
+      storyboardModal.addEventListener('show.bs.modal', function() {
+        // Disable right-click in the modal
+        const modalBody = this.querySelector('.modal-body');
+        if (modalBody) {
+          modalBody.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+          });
+          
+          // Disable keyboard shortcuts (Ctrl+S, Ctrl+P, etc.)
+          modalBody.addEventListener('keydown', function(e) {
+            // Prevent Ctrl+S (Save)
+            if (e.ctrlKey && e.key === 's') {
+              e.preventDefault();
+              return false;
+            }
+            // Prevent Ctrl+P (Print)
+            if (e.ctrlKey && e.key === 'p') {
+              e.preventDefault();
+              return false;
+            }
+            // Prevent F12 (Developer Tools)
+            if (e.key === 'F12') {
+              e.preventDefault();
+              return false;
+            }
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
